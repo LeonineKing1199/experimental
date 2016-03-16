@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="experimental" Database="experimental.tags">
+  <Project Name="MeshGen" Path="MeshGen/MeshGen.project" Active="No"/>
+  <Project Name="VectorList" Path="VectorList/VectorList.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="debug" Selected="yes">
+      <Environment/>
+      <Project Name="MeshGen" ConfigName="Debug"/>
+      <Project Name="VectorList" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="release" Selected="yes">
+      <Environment/>
+      <Project Name="MeshGen" ConfigName="Debug"/>
+      <Project Name="VectorList" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

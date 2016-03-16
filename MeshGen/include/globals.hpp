@@ -1,0 +1,4 @@
+#ifndef MESHGEN_GLOBALS_HPP_
+#define MESHGEN_GLOBALS_HPP_
+
+#endif // MESHGEN_GLOBALS_HPP_

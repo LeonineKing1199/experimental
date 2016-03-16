@@ -1,0 +1,9 @@
+[{
+  "file": "/home/christian/experimental/MeshGen/main.cpp",
+  "directory": "/home/christian/experimental/MeshGen",
+  "command": "/usr/bin/g++-5 -c /home/christian/experimental/MeshGen/main.cpp -o /home/christian/experimental/MeshGen/main.cpp.o  -g  -O0  -Wall -I. -I."
+ }, {
+  "file": "/home/christian/experimental/VectorList/main.cpp",
+  "directory": "/home/christian/experimental/VectorList",
+  "command": "/usr/bin/g++-5 -c /home/christian/experimental/VectorList/main.cpp -o /home/christian/experimental/VectorList/main.cpp.o  -g  -O0  -pedantic  -W  -std=c++14  -Wall -I. -I."
+ }]
