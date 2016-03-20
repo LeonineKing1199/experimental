@@ -4,6 +4,10 @@
 #include <atomic>
 #include <utility>
 #include <cassert>
+#include <iostream>
+#include <cstdlib>
+#include <algorithm>
+#include <memory>
 
 namespace regulus
 {

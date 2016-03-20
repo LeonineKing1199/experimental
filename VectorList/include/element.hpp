@@ -17,15 +17,7 @@ namespace regulus
       T data_;
       next_type next_;
     };
-    
-    void set_state(element_state state)
-    {
-      if (state_ == element_state::alive)
-        data_.~T();
         
-      state_ = state;
-    }
-    
   public:
     element(void) 
       : state_{element_state::undefined}
@@ -34,11 +26,7 @@ namespace regulus
     
     ~element(void)
     {
-      if (state_ == element_state::alive) {
-        data_.~T();
-      }
-      
-      state_ = undefined; // maybe this is unecessary?
+      set_state(element_state::undefined);
     }
     
     element_state get_state(void) const
@@ -48,6 +36,7 @@ namespace regulus
     
     T get_data(void) const
     {
+      assert(state_ == element_state::alive);
       return data_;
     }
     
@@ -56,10 +45,37 @@ namespace regulus
       return next_;
     }
     
+    void set_state(element_state state)
+    {
+      if (state_ == element_state::alive)
+        data_.~T();
+        
+      state_ = state;
+    }    
+    
     void set_next(element* next_element, std::atomic_flag* next_lock)
     {
       set_state(element_state::free);
       next_ = {next_element, next_lock};
+    }
+    
+    void set_next(const next_type& next)
+    {
+      set_state(element_state::free);
+      next_ = next;
+    }
+    
+    void set_boundary(element* boundary, std::atomic_flag* boundary_lock)
+    {
+      set_state(element_state::boundary);
+      next_ = {boundary, boundary_lock};
+    }
+
+    template <typename ...Args>
+    void set_data(Args&&... args)
+    {
+      set_state(element_state::alive);
+      new(std::addressof(data_)) T{std::forward<Args>(args)...};
     }
   };
 }
