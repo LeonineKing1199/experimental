@@ -101,3 +101,8 @@ void block_tests(void)
 //  typename regulus::element<int>::next_type free_list{nullptr, nullptr};
 //  regulus::block<int> b(size, free_list);
 }
+
+void iterator_tests(void)
+{
+  regulus::iterator<int> it;
+}

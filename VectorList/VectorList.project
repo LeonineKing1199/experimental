@@ -119,6 +119,7 @@
   <VirtualDirectory Name="helpers">
     <File Name="helpers/utils.hpp"/>
     <File Name="helpers/utils.cpp"/>
+    <File Name="helpers/spinlock_exec.hpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="test">
     <File Name="test/test.hpp"/>
