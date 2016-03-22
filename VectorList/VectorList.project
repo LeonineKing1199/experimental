@@ -26,6 +26,7 @@
     <File Name="include/globals.hpp"/>
     <File Name="include/element.hpp"/>
     <File Name="include/block.hpp"/>
+    <File Name="include/vectorlist.hpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
