@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/helpers_utils.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/helpers_utils.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix) 
 
 
 
@@ -114,6 +114,30 @@ $(IntermediateDirectory)/test_test.cpp$(DependSuffix): test/test.cpp
 
 $(IntermediateDirectory)/test_test.cpp$(PreprocessSuffix): test/test.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_test.cpp$(PreprocessSuffix) "test/test.cpp"
+
+$(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix): test/iterator-tests.cpp $(IntermediateDirectory)/test_iterator-tests.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/VectorList/test/iterator-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_iterator-tests.cpp$(DependSuffix): test/iterator-tests.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_iterator-tests.cpp$(DependSuffix) -MM "test/iterator-tests.cpp"
+
+$(IntermediateDirectory)/test_iterator-tests.cpp$(PreprocessSuffix): test/iterator-tests.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_iterator-tests.cpp$(PreprocessSuffix) "test/iterator-tests.cpp"
+
+$(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix): test/element-tests.cpp $(IntermediateDirectory)/test_element-tests.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/VectorList/test/element-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_element-tests.cpp$(DependSuffix): test/element-tests.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_element-tests.cpp$(DependSuffix) -MM "test/element-tests.cpp"
+
+$(IntermediateDirectory)/test_element-tests.cpp$(PreprocessSuffix): test/element-tests.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_element-tests.cpp$(PreprocessSuffix) "test/element-tests.cpp"
+
+$(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix): test/utils-tests.cpp $(IntermediateDirectory)/test_utils-tests.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/VectorList/test/utils-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_utils-tests.cpp$(DependSuffix): test/utils-tests.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_utils-tests.cpp$(DependSuffix) -MM "test/utils-tests.cpp"
+
+$(IntermediateDirectory)/test_utils-tests.cpp$(PreprocessSuffix): test/utils-tests.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_utils-tests.cpp$(PreprocessSuffix) "test/utils-tests.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

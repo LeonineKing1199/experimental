@@ -21,6 +21,8 @@ namespace regulus
       // the first and last elements are both boundaries
       elements[0].set_state(element_state::boundary);
       elements[adjusted_n - 1].set_state(element_state::boundary);
+      elements[0].set_boundary(nullptr, nullptr);
+      elements[adjusted_n - 1].set_boundary(nullptr, nullptr);
       
       // set the internal free list of the block
       for (std::size_t i = 1; i < n; ++i) {

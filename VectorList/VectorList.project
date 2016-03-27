@@ -124,6 +124,9 @@
   <VirtualDirectory Name="test">
     <File Name="test/test.hpp"/>
     <File Name="test/test.cpp"/>
+    <File Name="test/iterator-tests.cpp"/>
+    <File Name="test/element-tests.cpp"/>
+    <File Name="test/utils-tests.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="iterator">
     <File Name="iterator/iterator.hpp"/>

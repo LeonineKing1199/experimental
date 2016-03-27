@@ -29,6 +29,7 @@ namespace regulus
     
     element_state get_state(void)
     {
+      assert(lock_ != nullptr);
       return spinlock_exec([this](void) -> element_state {
         return element_->get_state();
       }, *lock_);
@@ -47,6 +48,10 @@ namespace regulus
           
           element_ = std::get<decltype(element_)>(next_block);
           lock_ = std::get<decltype(lock_)>(next_block);
+          
+          if (element_ == nullptr) {
+            return;
+          }
       }
       
       forward_or_backward();
@@ -59,7 +64,25 @@ namespace regulus
       
       while (get_state() != element_state::alive) {
         step(step_forward);
+  
+        if (element_ == nullptr) {
+          return;
+        }
       }
+    }
+    
+    void find_prev_alive(void)
+    {
+      const auto step_backward = [this](void) -> void { backward(); };
+      step(step_backward);
+      
+      while (get_state() != element_state::alive) {
+        step(step_backward);
+        
+        if (element_ == nullptr) {
+          return;
+        }        
+      }      
     }
     
   public:
@@ -71,6 +94,12 @@ namespace regulus
       void operator++(void) 
       {
         find_next_alive();
+//        std::cout << "now at : " << element_ << std::endl;
+      }
+      
+      void operator--(void) 
+      {
+        find_prev_alive();
       }
       
       T operator*(void) 
@@ -81,7 +110,7 @@ namespace regulus
       }
       
       bool operator==(const iterator& other) {
-        const bool val = element_ == other.element_;
+        const bool val = (element_ == other.element_);
         if (val) {
           assert(lock_ == other.lock_);
         }
@@ -90,7 +119,9 @@ namespace regulus
       }
       
       bool operator!=(const iterator& other) {
-        return *this == other;
+        const bool val = (element_ == other.element_);
+        
+        return !val;
       }
   }; 
 }
