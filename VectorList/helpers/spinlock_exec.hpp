@@ -26,7 +26,7 @@ namespace regulus
     }
     
     auto&& r = f(std::forward<Args>(args)...);
-    lock.clear();
+    lock.clear(std::memory_order_release);
     return r;
   }
   
@@ -34,7 +34,7 @@ namespace regulus
   auto spinlock_exec(F f, std::atomic_flag& lock, Args&&... args)
       -> decltype(f())
   {
-    
+    return spinlock_helper(f, lock, tag<decltype(f())>{}, std::forward<Args>(args)...);
   }
 }
 

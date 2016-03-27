@@ -6,6 +6,7 @@ void test_suite(void)
   element_tests();
   utils_tests();
   block_tests();
+  iterator_tests();
   std::cout << "Completed Successfully!\n" << std::endl;
 }
 
@@ -104,5 +105,23 @@ void block_tests(void)
 
 void iterator_tests(void)
 {
-  regulus::iterator<int> it;
+  const int size = 16;
+  auto block{regulus::utils::alloc_block<int>(size)};
+  
+  auto elements = block.first.get();
+  auto locks = block.second.get();
+  
+  regulus::iterator<int> it{elements + 1, locks + 1};
+  decltype(it) end;
+  
+  for (int i = 0; i < size; ++i) {
+    elements[i + 1].set_data(i);
+  }
+
+  int i = 0;
+  while (it != end) {
+    assert(*it == i);
+    ++i;
+    ++it;
+  }
 }
