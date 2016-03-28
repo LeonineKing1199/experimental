@@ -5,13 +5,12 @@
 
 namespace regulus
 {
+  template <typename T> class vector_list;
+  
   namespace utils
   {
     template <typename T>
-    auto alloc_block(const std::size_t n) 
-        -> std::pair<
-            std::unique_ptr<element<T>[]>, 
-            std::unique_ptr<std::atomic_flag[]>>
+    auto alloc_block(const std::size_t n) -> typename vector_list<T>::block
     {
       const auto adjusted_n = n + 2;
       
@@ -32,10 +31,9 @@ namespace regulus
       
       elements[n].set_state(element_state::free);
       
-      return (
-        std::pair<
-          decltype(elements), 
-          decltype(locks)>{std::move(elements), std::move(locks)});
+      return std::move(
+        typename vector_list<T>::block{
+          std::move(elements), std::move(locks), n});
     }
   }
 }

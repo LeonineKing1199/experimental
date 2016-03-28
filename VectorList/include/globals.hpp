@@ -8,6 +8,9 @@
 #include <cstdlib>
 #include <algorithm>
 #include <memory>
+#include <list>
+#include <unordered_map>
+#include <thread>
 
 namespace regulus
 {

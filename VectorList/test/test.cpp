@@ -7,6 +7,7 @@ void test_suite(void)
   utils_tests();
   block_tests();
   iterator_tests();
+  vectorlist_tests();
   std::cout << "\nCompleted Successfully!\n" << std::endl;
 }
 

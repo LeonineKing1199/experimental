@@ -127,6 +127,7 @@
     <File Name="test/iterator-tests.cpp"/>
     <File Name="test/element-tests.cpp"/>
     <File Name="test/utils-tests.cpp"/>
+    <File Name="test/vectorlist-tests.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="iterator">
     <File Name="iterator/iterator.hpp"/>

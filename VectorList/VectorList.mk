@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Christian
-Date                   :=26/03/16
+Date                   :=27/03/16
 CodeLitePath           :="/home/christian/.codelite"
 LinkerName             :=/usr/bin/g++-5
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/helpers_utils.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/helpers_utils.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_vectorlist-tests.cpp$(ObjectSuffix) 
 
 
 
@@ -138,6 +138,14 @@ $(IntermediateDirectory)/test_utils-tests.cpp$(DependSuffix): test/utils-tests.c
 
 $(IntermediateDirectory)/test_utils-tests.cpp$(PreprocessSuffix): test/utils-tests.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_utils-tests.cpp$(PreprocessSuffix) "test/utils-tests.cpp"
+
+$(IntermediateDirectory)/test_vectorlist-tests.cpp$(ObjectSuffix): test/vectorlist-tests.cpp $(IntermediateDirectory)/test_vectorlist-tests.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/VectorList/test/vectorlist-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_vectorlist-tests.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_vectorlist-tests.cpp$(DependSuffix): test/vectorlist-tests.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_vectorlist-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_vectorlist-tests.cpp$(DependSuffix) -MM "test/vectorlist-tests.cpp"
+
+$(IntermediateDirectory)/test_vectorlist-tests.cpp$(PreprocessSuffix): test/vectorlist-tests.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_vectorlist-tests.cpp$(PreprocessSuffix) "test/vectorlist-tests.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

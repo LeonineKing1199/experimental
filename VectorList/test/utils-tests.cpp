@@ -11,8 +11,8 @@ void utils_tests(void)
   auto block{regulus::utils::alloc_block<int>(size)};
   
   //TODO: Rewrite these tests with iterators
-  const auto elements = block.first.get();
-  const auto locks = block.second.get();
+  const auto elements = block.elements.get();
+  const auto locks = block.locks.get();
   
   const auto adjusted_n = size + 2;
   

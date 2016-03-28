@@ -8,8 +8,8 @@ void iterator_tests(void)
   const int size = 16;
   auto block{regulus::utils::alloc_block<int>(size)};
   
-  auto elements = block.first.get();
-  auto locks = block.second.get();
+  auto elements = block.elements.get();
+  auto locks = block.locks.get();
     
   for (int i = 0; i < size; ++i) {
     elements[i + 1].set_data(i);

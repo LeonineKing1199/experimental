@@ -57,32 +57,28 @@ namespace regulus
       forward_or_backward();
     }
     
-    void find_next_alive(void)
+    template <typename F>
+    void find_alive_in_direction(F forward_or_backward)
     {
-      const auto step_forward = [this](void) -> void { forward(); };
-      step(step_forward);
+      step(forward_or_backward);
       
       while (get_state() != element_state::alive) {
-        step(step_forward);
+        step(forward_or_backward);
   
         if (element_ == nullptr) {
           return;
         }
-      }
+      }      
+    }
+    
+    void find_next_alive(void)
+    {
+      find_alive_in_direction([this](void) -> void { forward(); });
     }
     
     void find_prev_alive(void)
     {
-      const auto step_backward = [this](void) -> void { backward(); };
-      step(step_backward);
-      
-      while (get_state() != element_state::alive) {
-        step(step_backward);
-        
-        if (element_ == nullptr) {
-          return;
-        }        
-      }      
+      find_alive_in_direction([this](void) -> void { backward(); });
     }
     
   public:
@@ -94,7 +90,6 @@ namespace regulus
       void operator++(void) 
       {
         find_next_alive();
-//        std::cout << "now at : " << element_ << std::endl;
       }
       
       void operator--(void) 
@@ -119,9 +114,7 @@ namespace regulus
       }
       
       bool operator!=(const iterator& other) {
-        const bool val = (element_ == other.element_);
-        
-        return !val;
+        return !(*this == other);
       }
   }; 
 }

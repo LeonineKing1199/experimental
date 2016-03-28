@@ -5,11 +5,13 @@
 #include "../helpers/utils.hpp"
 #include "../include/block.hpp"
 #include "../iterator/iterator.hpp"
+#include "../include/vectorlist.hpp"
 
 void test_suite(void);
 void element_tests(void);
 void utils_tests(void);
 void block_tests(void);
 void iterator_tests(void);
+void vectorlist_tests(void);
 
 #endif // VECTORLIST_TEST_HPP_
