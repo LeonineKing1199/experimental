@@ -49,11 +49,11 @@ namespace regulus
     
     void increment_size(int n)
     {
-//      const auto inc_size = [this](size_type m) -> void {
-//        size_ += m;
-//      };
+      const auto inc_size = [this, n](void) -> void {
+        size_ += n;
+      };
       
-      //utils::spinlock_exec(inc_size, lock_, n);
+      utils::spinlock_exec(inc_size, lock_);
     }
     
 //    void decrement_size(size_type n)

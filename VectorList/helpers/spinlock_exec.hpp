@@ -34,9 +34,13 @@ namespace regulus
     
     template <typename F, typename ...Args>  
     auto spinlock_exec(F f, std::atomic_flag& lock, Args&&... args)
-        -> decltype(f())
+        -> decltype(f(std::forward<Args>(args)...))
     {
-      return spinlock_helper(f, lock, tag<decltype(f())>{}, std::forward<Args>(args)...);
+      return spinlock_helper(
+        f, 
+        lock, 
+        tag<decltype(f(std::forward<Args>(args)...))>{}, 
+        std::forward<Args>(args)...);
     }
   }
 }

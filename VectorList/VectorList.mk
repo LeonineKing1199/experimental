@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/helpers_utils.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_vectorlist-tests.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/helpers_utils.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_element-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_utils-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_vectorlist-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_spinlock-tests.cpp$(ObjectSuffix) 
 
 
 
@@ -146,6 +146,14 @@ $(IntermediateDirectory)/test_vectorlist-tests.cpp$(DependSuffix): test/vectorli
 
 $(IntermediateDirectory)/test_vectorlist-tests.cpp$(PreprocessSuffix): test/vectorlist-tests.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_vectorlist-tests.cpp$(PreprocessSuffix) "test/vectorlist-tests.cpp"
+
+$(IntermediateDirectory)/test_spinlock-tests.cpp$(ObjectSuffix): test/spinlock-tests.cpp $(IntermediateDirectory)/test_spinlock-tests.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/VectorList/test/spinlock-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_spinlock-tests.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_spinlock-tests.cpp$(DependSuffix): test/spinlock-tests.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_spinlock-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_spinlock-tests.cpp$(DependSuffix) -MM "test/spinlock-tests.cpp"
+
+$(IntermediateDirectory)/test_spinlock-tests.cpp$(PreprocessSuffix): test/spinlock-tests.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_spinlock-tests.cpp$(PreprocessSuffix) "test/spinlock-tests.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

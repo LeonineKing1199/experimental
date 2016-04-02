@@ -8,6 +8,7 @@ void test_suite(void)
   block_tests();
   iterator_tests();
   vectorlist_tests();
+  spinlock_tests();
   std::cout << "\nCompleted Successfully!\n" << std::endl;
 }
 
