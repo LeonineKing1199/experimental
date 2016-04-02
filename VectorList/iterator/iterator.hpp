@@ -30,7 +30,7 @@ namespace regulus
     element_state get_state(void)
     {
       assert(lock_ != nullptr);
-      return spinlock_exec([this](void) -> element_state {
+      return utils::spinlock_exec([this](void) -> element_state {
         return element_->get_state();
       }, *lock_);
     }
@@ -42,7 +42,7 @@ namespace regulus
       
       if (state == element_state::boundary) {
         auto next_block = 
-          spinlock_exec([this](void) -> typename element<T>::next_type {
+          utils::spinlock_exec([this](void) -> typename element<T>::next_type {
             return element_->get_next();
           }, *lock_);
           
@@ -99,7 +99,7 @@ namespace regulus
       
       T operator*(void) 
       {
-        return spinlock_exec([this](void) {
+        return utils::spinlock_exec([this](void) {
           return element_->get_data();
         }, *lock_);
       }

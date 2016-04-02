@@ -5,16 +5,16 @@
 ## Debug
 ProjectName            :=VectorList
 ConfigurationName      :=Debug
-WorkspacePath          := "/home/christian/experimental"
-ProjectPath            := "/home/christian/experimental/VectorList"
+WorkspacePath          :=/home/christian/experimental
+ProjectPath            :=/home/christian/experimental/VectorList
 IntermediateDirectory  :=./debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Christian
-Date                   :=27/03/16
-CodeLitePath           :="/home/christian/.codelite"
+Date                   :=02/04/16
+CodeLitePath           :=/home/christian/.codelite
 LinkerName             :=/usr/bin/g++-5
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
 ObjectSuffix           :=.o
