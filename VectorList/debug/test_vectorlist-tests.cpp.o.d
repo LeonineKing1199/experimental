@@ -6,7 +6,8 @@ debug/test_vectorlist-tests.cpp.o: test/vectorlist-tests.cpp \
  test/../iterator/../helpers/spinlock_exec.hpp \
  test/../include/vectorlist.hpp test/../include/../helpers/utils.hpp \
  test/../include/../iterator/iterator.hpp \
- test/../include/../helpers/spinlock_exec.hpp
+ test/../include/../helpers/spinlock_exec.hpp \
+ test/../helpers/spinlock_exec.hpp
 
 test/test.hpp:
 
@@ -33,3 +34,5 @@ test/../include/../helpers/utils.hpp:
 test/../include/../iterator/iterator.hpp:
 
 test/../include/../helpers/spinlock_exec.hpp:
+
+test/../helpers/spinlock_exec.hpp:

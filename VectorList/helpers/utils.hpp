@@ -35,6 +35,20 @@ namespace regulus
         typename vector_list<T>::block{
           std::move(elements), std::move(locks), n});
     }
+    
+    /*
+     * Takes block A and links its end
+     * to the beginning of block B and
+     * vice versa
+     * */
+    template <typename T>
+    void link_blocks(
+        typename vector_list<T>::block& a, typename vector_list<T>::block& b)
+    {
+      a.elements[a.size + 1].set_boundary(b.elements.get(), b.locks.get());
+      b.elements[0].set_boundary(
+        a.elements.get() + a.size + 1, a.locks.get() + a.size + 1);
+    }
   }
 }
 
