@@ -5,22 +5,22 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/iterator/iterator.hpp" Name="FileName"/>
-      <int Value="99" Name="FirstVisibleLine"/>
-      <int Value="108" Name="CurrentLine"/>
+      <int Value="21" Name="FirstVisibleLine"/>
+      <int Value="30" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/test/iterator-tests.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="16" Name="CurrentLine"/>
+      <int Value="15" Name="FirstVisibleLine"/>
+      <int Value="20" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/helpers/utils.hpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="12" Name="CurrentLine"/>
+      <int Value="38" Name="FirstVisibleLine"/>
+      <int Value="46" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -34,42 +34,56 @@
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/test/test.hpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="7" Name="CurrentLine"/>
+      <int Value="8" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/test/test.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="9" Name="CurrentLine"/>
+      <int Value="10" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/test/vectorlist-tests.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="4" Name="CurrentLine"/>
+      <int Value="9" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/test/utils-tests.cpp" Name="FileName"/>
-      <int Value="7" Name="FirstVisibleLine"/>
+      <int Value="0" Name="FirstVisibleLine"/>
       <int Value="14" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/include/vectorlist.hpp" Name="FileName"/>
-      <int Value="63" Name="FirstVisibleLine"/>
-      <int Value="75" Name="CurrentLine"/>
+      <int Value="111" Name="FirstVisibleLine"/>
+      <int Value="112" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="/home/christian/experimental/VectorList/helpers/spinlock_exec.hpp" Name="FileName"/>
-      <int Value="18" Name="FirstVisibleLine"/>
+      <int Value="27" Name="FirstVisibleLine"/>
+      <int Value="38" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/christian/experimental/VectorList/helpers/utils.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/christian/experimental/VectorList/test/spinlock-tests.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="13" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

@@ -1,6 +1,9 @@
 #ifndef VECTORLIST_TEST_HPP_
 #define VECTORLIST_TEST_HPP_
 
+#include <thread>
+#include <atomic>
+
 #include "../include/element.hpp"
 #include "../helpers/utils.hpp"
 #include "../include/block.hpp"

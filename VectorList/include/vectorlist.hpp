@@ -73,7 +73,7 @@ namespace regulus
       
       return utils::spinlock_exec([this](block&& blk, size_type sz) -> next_type {
         if (blocks_.size() > 0)
-          utils::link_blocks<T>(blk, blocks_.back());
+          utils::link_blocks<T>(blocks_.back(), blk);
           
         blocks_.push_back(std::move(blk));
         capacity_ += sz;
@@ -118,7 +118,6 @@ namespace regulus
       lock_ptr& l = std::get<lock_ptr>(nt);
             
       if (el == nullptr) {
-        std::cout << "Adding a new block!" << std::endl;
         auto new_pair = push_new_block(block_size_);
         
         assert(new_pair.first->get_state() == element_state::boundary);
@@ -141,6 +140,50 @@ namespace regulus
       increment_size(1);
       
       return iter{el, l};
+    }
+    
+    iter begin(void)
+    {
+      assert(blocks_.size() > 0);
+      
+      block& b = blocks_.front();
+      element_ptr el = b.elements.get();
+      lock_ptr l = b.locks.get();
+      
+      iter it{el + 1, l + 1};
+      
+      if (it.get_state() != element_state::alive)
+        ++it;
+      
+      return it;
+    }
+    
+    iter end(void) const
+    {
+      return iter{};
+    }
+    
+    iter rbegin(void)
+    {
+      assert(blocks_.size() > 0);
+      
+      block& b = blocks_.back();
+      element_ptr el = b.elements.get();
+      lock_ptr l = b.locks.get();
+      size_type size = b.size;
+      
+      iter it{el + size, l + size};
+      
+      if (it.get_state() != element_state::alive) {
+        --it;
+      }
+        
+      return it;
+    }
+    
+    iter rend(void) const
+    {
+      return iter{};
     }
   };  
 }

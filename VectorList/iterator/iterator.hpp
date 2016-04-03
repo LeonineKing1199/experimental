@@ -26,15 +26,7 @@ namespace regulus
       --element_;
       --lock_;
     }
-    
-    element_state get_state(void)
-    {
-      assert(lock_ != nullptr);
-      return utils::spinlock_exec([this](void) -> element_state {
-        return element_->get_state();
-      }, *lock_);
-    }
-    
+        
     template <typename F>
     void step(F forward_or_backward)
     {
@@ -86,15 +78,25 @@ namespace regulus
       : element_{el}
       , lock_{lock}
       {}
-      
-      void operator++(void) 
+    
+      element_state get_state(void)
+      {
+        assert(lock_ != nullptr);
+        return utils::spinlock_exec([this](void) -> element_state {
+          return element_->get_state();
+        }, *lock_);
+      }
+  
+      iterator operator++(void) 
       {
         find_next_alive();
+        return *this;
       }
       
-      void operator--(void) 
+      iterator operator--(void) 
       {
         find_prev_alive();
+        return *this;
       }
       
       T operator*(void) 

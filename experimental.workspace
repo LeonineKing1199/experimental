@@ -5,8 +5,8 @@
   <BuildMatrix>
     <WorkspaceConfiguration Name="debug" Selected="yes">
       <Environment/>
-      <Project Name="MeshGen" ConfigName="Debug"/>
       <Project Name="VectorList" ConfigName="Debug"/>
+      <Project Name="MeshGen" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="release" Selected="yes">
       <Environment/>

@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Christian
-Date                   :=02/04/16
+Date                   :=03/04/16
 CodeLitePath           :=/home/christian/.codelite
 LinkerName             :=/usr/bin/g++-5
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -39,8 +39,8 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := 
-ArLibs                 :=  
+Libs                   := $(LibrarySwitch)pthread 
+ArLibs                 :=  "pthread" 
 LibPath                := $(LibraryPathSwitch). 
 
 ##
