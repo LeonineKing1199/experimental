@@ -2,18 +2,18 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Debug
+## Release
 ProjectName            :=VectorList
-ConfigurationName      :=Debug
+ConfigurationName      :=Release
 WorkspacePath          :=/home/christian/experimental
 ProjectPath            :=/home/christian/experimental/VectorList
-IntermediateDirectory  :=./debug
+IntermediateDirectory  :=./Release
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Christian
-Date                   :=03/04/16
+Date                   :=08/04/16
 CodeLitePath           :=/home/christian/.codelite
 LinkerName             :=/usr/bin/g++-5
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -28,7 +28,7 @@ LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 OutputFile             :=$(IntermediateDirectory)/$(ProjectName)
-Preprocessors          :=
+Preprocessors          :=$(PreprocessorSwitch)NDEBUG 
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
@@ -50,8 +50,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++-5
 CC       := /usr/bin/gcc-5
-CXXFLAGS :=  -g -O0 -pedantic -W -std=c++14 -Wall $(Preprocessors)
-CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
+CXXFLAGS :=  -pg -O3 -fexpensive-optimizations -pedantic -W -std=c++14 -Wall $(Preprocessors)
+CFLAGS   :=  -pg -O3 -fexpensive-optimizations -pedantic -W -std=c++14 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 
@@ -79,11 +79,11 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
 
 MakeIntermediateDirs:
-	@test -d ./debug || $(MakeDirCommand) ./debug
+	@test -d ./Release || $(MakeDirCommand) ./Release
 
 
 $(IntermediateDirectory)/.d:
-	@test -d ./debug || $(MakeDirCommand) ./debug
+	@test -d ./Release || $(MakeDirCommand) ./Release
 
 PreBuild:
 
@@ -161,6 +161,6 @@ $(IntermediateDirectory)/test_spinlock-tests.cpp$(PreprocessSuffix): test/spinlo
 ## Clean
 ##
 clean:
-	$(RM) -r ./debug/
+	$(RM) -r ./Release/
 
 

@@ -86,6 +86,13 @@ namespace regulus
           return element_->get_state();
         }, *lock_);
       }
+      
+      void set_next(typename vector_list<T>::next_type&& nt)
+      {
+        utils::spinlock_exec([this](auto nt) -> void {
+          element_->set_next(nt);
+        }, *lock_, nt);
+      }
   
       iterator operator++(void) 
       {

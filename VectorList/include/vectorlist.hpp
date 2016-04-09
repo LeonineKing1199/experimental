@@ -83,6 +83,13 @@ namespace regulus
       }, lock_, std::move(b), size);
     }
     
+    next_type get_free_list(void)
+    {
+      return utils::spinlock_exec([this](void) -> next_type {
+        return fl_[get_tid()];
+      }, lock_);
+    }    
+    
   public:
     vector_list(void)
       : size_{0}
@@ -112,33 +119,35 @@ namespace regulus
     template <typename ...Args>
     iter emplace(Args&&... args)
     {
-      auto tid = get_tid();
-      next_type nt = fl_[tid];
+      next_type nt = get_free_list();
       element_ptr& el = std::get<element_ptr>(nt);
       lock_ptr& l = std::get<lock_ptr>(nt);
             
       if (el == nullptr) {
         auto new_pair = push_new_block(block_size_);
         
-        assert(new_pair.first->get_state() == element_state::boundary);
-        assert((new_pair.first + 1)->get_state() == element_state::free);
+//        utils::spinlock_exec([&new_pair](void) -> void {
+//          assert(new_pair.first->get_state() == element_state::boundary);
+//          assert((new_pair.first + 1)->get_state() == element_state::free);          
+//        }, lock_);
         
         nt = next_type{new_pair.first + 1, new_pair.second + 1};
       }
       
       assert(el != nullptr);
-      assert(el->get_state() != element_state::boundary);
       
-      next_type next = el->get_next();
-      
-      utils::spinlock_exec([el, l, &args...](void) -> void {
-        el->set_data(std::forward<Args>(args)...);
-      }, *l);
-      
-      fl_[tid] = next;
-      
-      increment_size(1);
-      
+      //utils::spinlock_exec([this, el, l, &args...](void) -> void {
+        //fl_[get_tid()] = utils::spinlock_exec([el, l, &args...](void) -> next_type {
+          //assert(el->get_state() != element_state::boundary);
+          
+          next_type next = el->get_next();
+          el->set_data(std::forward<Args>(args)...);
+          //return next;
+        //}, *l);
+        fl_[get_tid()] = next;
+        ++size_;
+      //}, lock_);
+            
       return iter{el, l};
     }
     
@@ -162,7 +171,7 @@ namespace regulus
     {
       return iter{};
     }
-    
+        
     iter rbegin(void)
     {
       assert(blocks_.size() > 0);
@@ -184,6 +193,11 @@ namespace regulus
     iter rend(void) const
     {
       return iter{};
+    }
+    
+    void remove(iter& it)
+    {
+      it.set_next(get_free_list());
     }
   };  
 }

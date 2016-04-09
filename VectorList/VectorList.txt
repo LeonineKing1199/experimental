@@ -1,1 +1,1 @@
-./debug/main.cpp.o ./debug/helpers_utils.cpp.o ./debug/test_test.cpp.o ./debug/test_iterator-tests.cpp.o ./debug/test_element-tests.cpp.o ./debug/test_utils-tests.cpp.o ./debug/test_vectorlist-tests.cpp.o ./debug/test_spinlock-tests.cpp.o
+./Release/main.cpp.o ./Release/helpers_utils.cpp.o ./Release/test_test.cpp.o ./Release/test_iterator-tests.cpp.o ./Release/test_element-tests.cpp.o ./Release/test_utils-tests.cpp.o ./Release/test_vectorlist-tests.cpp.o ./Release/test_spinlock-tests.cpp.o

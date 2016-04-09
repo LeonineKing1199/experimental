@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ VectorList - Debug ]----------"
-	@cd "VectorList" && "$(MAKE)" -f  "VectorList.mk"
+	@echo "----------Building project:[ UnrolledList - debug ]----------"
+	@cd "UnrolledList" && "$(MAKE)" -f  "UnrolledList.mk"
 clean:
-	@echo "----------Cleaning project:[ VectorList - Debug ]----------"
-	@cd "VectorList" && "$(MAKE)" -f  "VectorList.mk" clean
+	@echo "----------Cleaning project:[ UnrolledList - debug ]----------"
+	@cd "UnrolledList" && "$(MAKE)" -f  "UnrolledList.mk" clean

@@ -3,12 +3,12 @@
 void test_suite(void)
 {
   std::cout << "\nRunning Test Suite\n" << std::endl;
-  element_tests();
-  utils_tests();
-  block_tests();
-  iterator_tests();
+  //element_tests();
+  //utils_tests();
+  //block_tests();
+  //iterator_tests();
   vectorlist_tests();
-  spinlock_tests();
+  //spinlock_tests();
   std::cout << "\nCompleted Successfully!\n" << std::endl;
 }
 
