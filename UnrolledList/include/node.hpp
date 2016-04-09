@@ -2,7 +2,6 @@
 #define REGULUS_NODE_HPP_
 
 #include <type_traits>
-#include <bitset>
 
 #include "../helpers/utils.hpp"
 
@@ -14,18 +13,51 @@ namespace regulus
   class node
   {
   private:
-    typename std::aligned_storage<sizeof(T), alignof(T)>::type data_[node_size];
+    std::aligned_storage_t<sizeof(T), alignof(T)> data_[node_size];
     uint32_t state_;
     
   public:
     node(void) : state_{0} {}
     
-    int size(void) const
+    ~node(void)
     {
-      return pop_count(state_);
+      int i = bit_utils::find_first_set(state_);
+      
+      if (i == -1) {
+        return;
+      }  
+        
+      while (i >= 0)
+      {
+        reinterpret_cast<const T*>(data_ + i)->~T();
+        state_ -= (1 << i);
+        
+        i = bit_utils::find_first_set(state_);
+      }
     }
     
+    int size(void) const
+    {
+      return bit_utils::pop_count(state_);
+    }
     
+    int capacity(void) const
+    {
+      return node_size;
+    }
+    
+    template <typename ...Args>
+    void insert(Args&&... args)
+    {
+      const int i = bit_utils::find_first_set(~state_);
+      new(reinterpret_cast<T*>(data_ + i)) T{std::forward<Args>(args)...};
+      state_ |= (1 << i);
+    }
+    
+    T& operator[](const int idx) const
+    {
+      return *reinterpret_cast<const T*>(data_ + idx);
+    }
   };  
 }
 
