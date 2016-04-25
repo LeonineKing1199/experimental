@@ -1,6 +1,3 @@
-Debug/main.cpp.o: main.cpp test/debug-tests/debug-tests.hpp \
- test/debug-tests/../helpers/helpers.hpp
+Debug/main.cpp.o: main.cpp test/test.hpp
 
-test/debug-tests/debug-tests.hpp:
-
-test/debug-tests/../helpers/helpers.hpp:
+test/test.hpp:

@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="UnrolledList" InternalType="Console">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
+  "name": "Debug",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }, {
   "name": "debug",
   "enabled": false,
   "buildDirectory": "build",
@@ -22,9 +34,6 @@
   "parentProject": ""
  }]]]>
     </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00010001N0005debug000000000000]]>
-    </Plugin>
   </Plugins>
   <Description/>
   <Dependencies/>
@@ -41,8 +50,8 @@
       </Linker>
       <ResourceCompiler Options=""/>
     </GlobalSettings>
-    <Configuration Name="debug" CompilerType="GCC 5" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-O0;-pedantic;-W;-std=c++14;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+    <Configuration Name="Debug" CompilerType="GCC 5" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-O0;-pedantic;-std=c++14;-Wall;-Wextra" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="."/>
       </Compiler>
       <Linker Options="" Required="yes"/>
@@ -79,7 +88,7 @@
         <SearchPaths/>
       </Completion>
     </Configuration>
-    <Configuration Name="release" CompilerType="GCC 5" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+    <Configuration Name="Release" CompilerType="GCC 5" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-O2;-Wall" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="."/>
         <Preprocessor Value="NDEBUG"/>
@@ -90,7 +99,7 @@
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>
-      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="yes">
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
         <DebuggerSearchPaths/>
         <PostConnectCommands/>
         <StartupCommands/>
@@ -120,23 +129,13 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="include">
-    <File Name="include/unrolled-list.hpp"/>
-    <File Name="include/node.hpp"/>
+    <File Name="include/unrolled_list.hpp"/>
+    <File Name="include/unrolled_list_node.hpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="test">
-    <VirtualDirectory Name="helpers">
-      <File Name="test/helpers/helpers.hpp"/>
-      <File Name="test/helpers/helpers.cpp"/>
-    </VirtualDirectory>
-    <VirtualDirectory Name="debug-tests">
-      <File Name="test/debug-tests/debug-tests.hpp"/>
-      <File Name="test/debug-tests/debug-tests.cpp"/>
-      <File Name="test/debug-tests/node-tests.cpp"/>
-      <File Name="test/debug-tests/utils-bit-tests.cpp"/>
-    </VirtualDirectory>
-  </VirtualDirectory>
-  <VirtualDirectory Name="helpers">
-    <File Name="helpers/utils.hpp"/>
-    <File Name="helpers/bits.cpp"/>
+    <File Name="test/test.cpp"/>
+    <File Name="test/test.hpp"/>
+    <File Name="test/unrolled-list-tests.cpp"/>
+    <File Name="test/iterator-tests.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

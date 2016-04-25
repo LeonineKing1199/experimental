@@ -1,7 +1,7 @@
-#include "test/debug-tests/debug-tests.hpp"
+#include "test/test.hpp"
 
 int main(void)
 {
-  debug_tests();
+  test_suite();
 	return 0;
 }

@@ -7,8 +7,8 @@
     <WorkspaceConfiguration Name="debug" Selected="yes">
       <Environment/>
       <Project Name="VectorList" ConfigName="Debug"/>
-      <Project Name="UnrolledList" ConfigName="debug"/>
       <Project Name="MeshGen" ConfigName="Debug"/>
+      <Project Name="UnrolledList" ConfigName="Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

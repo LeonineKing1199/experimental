@@ -12,8 +12,8 @@
   <line>Command: ./UnrolledList</line>
 </preamble>
 
-<pid>20806</pid>
-<ppid>20805</ppid>
+<pid>9127</pid>
+<ppid>9126</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -38,13 +38,109 @@
   <time>00:00:00:00.098 </time>
 </status>
 
+<error>
+  <unique>0x0</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x401D2F</ip>
+      <obj>/home/christian/experimental/UnrolledList/Debug/UnrolledList</obj>
+      <fn>iterator_tests()::{lambda()#1}::operator()() const::{lambda()#1}::operator()() const</fn>
+      <dir>/home/christian/experimental/UnrolledList/test</dir>
+      <file>iterator-tests.cpp</file>
+      <line>27</line>
+    </frame>
+    <frame>
+      <ip>0x402051</ip>
+      <obj>/home/christian/experimental/UnrolledList/Debug/UnrolledList</obj>
+      <fn>void it&lt;iterator_tests()::{lambda()#1}::operator()() const::{lambda()#1}&gt;(char const*, iterator_tests()::{lambda()#1}::operator()() const::{lambda()#1})</fn>
+      <dir>/home/christian/experimental/UnrolledList/test</dir>
+      <file>test.hpp</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x401FDF</ip>
+      <obj>/home/christian/experimental/UnrolledList/Debug/UnrolledList</obj>
+      <fn>iterator_tests()::{lambda()#1}::operator()() const</fn>
+      <dir>/home/christian/experimental/UnrolledList/test</dir>
+      <file>iterator-tests.cpp</file>
+      <line>29</line>
+    </frame>
+    <frame>
+      <ip>0x4020DE</ip>
+      <obj>/home/christian/experimental/UnrolledList/Debug/UnrolledList</obj>
+      <fn>void describe&lt;iterator_tests()::{lambda()#1}&gt;(char const*, iterator_tests()::{lambda()#1})</fn>
+      <dir>/home/christian/experimental/UnrolledList/test</dir>
+      <file>test.hpp</file>
+      <line>17</line>
+    </frame>
+    <frame>
+      <ip>0x402014</ip>
+      <obj>/home/christian/experimental/UnrolledList/Debug/UnrolledList</obj>
+      <fn>iterator_tests()</fn>
+      <dir>/home/christian/experimental/UnrolledList/test</dir>
+      <file>iterator-tests.cpp</file>
+      <line>54</line>
+    </frame>
+    <frame>
+      <ip>0x400BE6</ip>
+      <obj>/home/christian/experimental/UnrolledList/Debug/UnrolledList</obj>
+      <fn>test_suite()</fn>
+      <dir>/home/christian/experimental/UnrolledList/test</dir>
+      <file>test.cpp</file>
+      <line>6</line>
+    </frame>
+    <frame>
+      <ip>0x400B7E</ip>
+      <obj>/home/christian/experimental/UnrolledList/Debug/UnrolledList</obj>
+      <fn>main</fn>
+      <dir>/home/christian/experimental/UnrolledList</dir>
+      <file>main.cpp</file>
+      <line>5</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x18 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>_ZZZ14iterator_testsvENKUlvE_clEvENKUlvE_clEv</fun> </sframe>
+    <sframe> <fun>_Z2itIZZ14iterator_testsvENKUlvE_clEvEUlvE_EvPKcT_</fun> </sframe>
+    <sframe> <fun>_ZZ14iterator_testsvENKUlvE_clEv</fun> </sframe>
+    <sframe> <fun>_Z8describeIZ14iterator_testsvEUlvE_EvPKcT_</fun> </sframe>
+    <sframe> <fun>_Z14iterator_testsv</fun> </sframe>
+    <sframe> <fun>_Z10test_suitev</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:_ZZZ14iterator_testsvENKUlvE_clEvENKUlvE_clEv
+   fun:_Z2itIZZ14iterator_testsvENKUlvE_clEvEUlvE_EvPKcT_
+   fun:_ZZ14iterator_testsvENKUlvE_clEv
+   fun:_Z8describeIZ14iterator_testsvEUlvE_EvPKcT_
+   fun:_Z14iterator_testsv
+   fun:_Z10test_suitev
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:00.970 </time>
+  <time>00:00:00:00.920 </time>
 </status>
 
 <errorcounts>
+  <pair>
+    <count>1</count>
+    <unique>0x0</unique>
+  </pair>
 </errorcounts>
 
 <suppcounts>

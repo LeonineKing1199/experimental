@@ -2,9 +2,9 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## debug
+## Debug
 ProjectName            :=UnrolledList
-ConfigurationName      :=debug
+ConfigurationName      :=Debug
 WorkspacePath          :=/home/christian/experimental
 ProjectPath            :=/home/christian/experimental/UnrolledList
 IntermediateDirectory  :=./Debug
@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Christian
-Date                   :=10/04/16
+Date                   :=24/04/16
 CodeLitePath           :=/home/christian/.codelite
 LinkerName             :=/usr/bin/g++-5
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -50,7 +50,7 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++-5
 CC       := /usr/bin/gcc-5
-CXXFLAGS :=  -g -O0 -pedantic -W -std=c++14 -Wall $(Preprocessors)
+CXXFLAGS :=  -g -O0 -pedantic -std=c++14 -Wall -Wextra $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/helpers_bits.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_helpers_helpers.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_unrolled-list-tests.cpp$(ObjectSuffix) $(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) 
 
 
 
@@ -99,45 +99,29 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
 
-$(IntermediateDirectory)/helpers_bits.cpp$(ObjectSuffix): helpers/bits.cpp $(IntermediateDirectory)/helpers_bits.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/helpers/bits.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/helpers_bits.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/helpers_bits.cpp$(DependSuffix): helpers/bits.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/helpers_bits.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/helpers_bits.cpp$(DependSuffix) -MM "helpers/bits.cpp"
+$(IntermediateDirectory)/test_test.cpp$(ObjectSuffix): test/test.cpp $(IntermediateDirectory)/test_test.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/test/test.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_test.cpp$(DependSuffix): test/test.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_test.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_test.cpp$(DependSuffix) -MM "test/test.cpp"
 
-$(IntermediateDirectory)/helpers_bits.cpp$(PreprocessSuffix): helpers/bits.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/helpers_bits.cpp$(PreprocessSuffix) "helpers/bits.cpp"
+$(IntermediateDirectory)/test_test.cpp$(PreprocessSuffix): test/test.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_test.cpp$(PreprocessSuffix) "test/test.cpp"
 
-$(IntermediateDirectory)/test_helpers_helpers.cpp$(ObjectSuffix): test/helpers/helpers.cpp $(IntermediateDirectory)/test_helpers_helpers.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/test/helpers/helpers.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_helpers_helpers.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/test_helpers_helpers.cpp$(DependSuffix): test/helpers/helpers.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_helpers_helpers.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_helpers_helpers.cpp$(DependSuffix) -MM "test/helpers/helpers.cpp"
+$(IntermediateDirectory)/test_unrolled-list-tests.cpp$(ObjectSuffix): test/unrolled-list-tests.cpp $(IntermediateDirectory)/test_unrolled-list-tests.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/test/unrolled-list-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_unrolled-list-tests.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_unrolled-list-tests.cpp$(DependSuffix): test/unrolled-list-tests.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_unrolled-list-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_unrolled-list-tests.cpp$(DependSuffix) -MM "test/unrolled-list-tests.cpp"
 
-$(IntermediateDirectory)/test_helpers_helpers.cpp$(PreprocessSuffix): test/helpers/helpers.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_helpers_helpers.cpp$(PreprocessSuffix) "test/helpers/helpers.cpp"
+$(IntermediateDirectory)/test_unrolled-list-tests.cpp$(PreprocessSuffix): test/unrolled-list-tests.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_unrolled-list-tests.cpp$(PreprocessSuffix) "test/unrolled-list-tests.cpp"
 
-$(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(ObjectSuffix): test/debug-tests/debug-tests.cpp $(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/test/debug-tests/debug-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(DependSuffix): test/debug-tests/debug-tests.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(DependSuffix) -MM "test/debug-tests/debug-tests.cpp"
+$(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix): test/iterator-tests.cpp $(IntermediateDirectory)/test_iterator-tests.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/test/iterator-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test_iterator-tests.cpp$(DependSuffix): test/iterator-tests.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_iterator-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_iterator-tests.cpp$(DependSuffix) -MM "test/iterator-tests.cpp"
 
-$(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(PreprocessSuffix): test/debug-tests/debug-tests.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_debug-tests_debug-tests.cpp$(PreprocessSuffix) "test/debug-tests/debug-tests.cpp"
-
-$(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(ObjectSuffix): test/debug-tests/node-tests.cpp $(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/test/debug-tests/node-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(DependSuffix): test/debug-tests/node-tests.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(DependSuffix) -MM "test/debug-tests/node-tests.cpp"
-
-$(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(PreprocessSuffix): test/debug-tests/node-tests.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_debug-tests_node-tests.cpp$(PreprocessSuffix) "test/debug-tests/node-tests.cpp"
-
-$(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(ObjectSuffix): test/debug-tests/utils-bit-tests.cpp $(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/christian/experimental/UnrolledList/test/debug-tests/utils-bit-tests.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(DependSuffix): test/debug-tests/utils-bit-tests.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(DependSuffix) -MM "test/debug-tests/utils-bit-tests.cpp"
-
-$(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(PreprocessSuffix): test/debug-tests/utils-bit-tests.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_debug-tests_utils-bit-tests.cpp$(PreprocessSuffix) "test/debug-tests/utils-bit-tests.cpp"
+$(IntermediateDirectory)/test_iterator-tests.cpp$(PreprocessSuffix): test/iterator-tests.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test_iterator-tests.cpp$(PreprocessSuffix) "test/iterator-tests.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
